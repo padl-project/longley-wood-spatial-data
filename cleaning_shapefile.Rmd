@@ -1,0 +1,77 @@
+---
+title: "Cleaning Shapefiles"
+author: "Camila Vargas"
+date: "8/27/2021"
+output: html_document
+---
+
+## Set up
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(googledrive)
+library(here)
+library(data.table)
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(lubridate)
+library(sf)
+
+## Sets R not to use scientific notations
+options(scipen=999) 
+
+# Create raw data folders 
+dir.create(paste0(getwd(),"/raw_data"))
+
+
+```
+
+
+## Download data files into local computer
+
+Make sure the file path on the code is updated to the correct folder. 
+
+```{r download files}
+# url of folder where the data lives
+# Copy pasete the url of the folder where the data lives
+
+folder_url <- "https://drive.google.com/drive/u/1/folders/147LKKPVtnKlVhYleWKtK2DaGoj3d18ho"
+
+# list of files inside the folder
+files <- drive_ls(as_id(folder_url))
+
+
+## Download all file to local computer. Need all files to be able to read the shapefile
+purrr::walk2(
+    map(files$id, as_id),
+    paste0("raw_data/", files$name),
+    drive_download,
+    overwrite = TRUE
+  )
+
+```
+
+## Check all files were downloaded 
+```{r}
+## File path to raw data used in this script
+raw_data_path <- paste0(getwd(), "/raw_data")
+
+# Count files inside the raw_data forder to make sure the number of files downloaded is what is expected.
+length(list.files(raw_data_path))
+
+```
+
+
+## Read in shapefile
+```{r}
+shp_1 <- read_sf("raw_data/All_Samples_Adj.shp") %>% 
+  clean_names()
+
+unique_values <- shp_1 %>% 
+  select(type, grain, origin, island, name, org_c_bin, species, sample_yr) %>% 
+  distinct()
+
+```
+
