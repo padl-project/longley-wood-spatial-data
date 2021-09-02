@@ -75,3 +75,9 @@ unique_values <- shp_1 %>%
 
 ```
 
+
+## Save as a data_object
+```{r}
+write_csv(shp_1, here::here("edi.test/data_objects/2016_and_2019_restoration_samples.csv"))
+```
+
