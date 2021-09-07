@@ -1,0 +1,133 @@
+---
+title: "Soil and Wood Sample Sites Metadata"
+author: "Kate Longley-Wood"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(EMLassemblyline)
+
+```
+
+### Dataset Title
+_Include what, where, and when in the dataset title_
+
+Body size data for Cane Spider, Palmyra Atoll, 2009,2010 and 2015
+
+
+### Abstract
+_Include what, why, where, when, and how_
+
+### Creators
+_These are the people who will show up as authors in the dataset citation. These are the individuals who have provided intellectual or other significant contributions to the creation of this dataset_
+
+### Other personnel names and roles 
+_Who should a data user contact with questions about these data? You must enter a person or organization name to serve as the contact for this dataset.  You may also list other personnel who participated in the project (such as field crew, lab tech, data entry etc.) in this table with optional fields e-mail addresses, organization and ORCID ID._
+
+
+
+### License 
+<!-- (Select a license for release of your data. We have 2 recommendations: CCO – most accommodating of data reuse, & CCBY – requires attribution).  -->
+
+
+### Keywords
+_Using keywords from a controlled vocabulary (CV) will improve the future discovery and reuse of your data.  The LTER CV is a good source for keywords. Access the [LTER CV here](https://vocab.lternet.edu/vocab/vocab/index.php).  Also, please determine one or two keywords that best describe your lab, station, and/or project (e.g., Trout Lake Station, NTL LTER).)_
+
+### Funding of this work
+<!-- List only the main PI of a grant that supported this project, starting with the main grant first.  Add rows to the table if several grants were involved. -->
+
+## Timeframe
+<!-- put in table format -->
+•	Begin date:
+•	End date:
+•	Data collection ongoing/completed:
+
+### Geographic location
+
+<!-- create table format -->
+
+
+### Methods
+_Be specific about the study design and field and lab methods for collecting and processing the data. Include instrument descriptions and protocol citations._
+
+
+### Data Provenance
+<!-- CHECK -->
+_Were these data derived from other data? If so, you will want to document this information so users know where these data came from.  Please specify the source datasets used in the below provenance table, preferably with their DOI or URL.  An example of a dataset derived from several others is here._
+
+
+### Data Table
+<!-- CREATE TABLE, REVISE EXPLANATION -->
+
+Each row in the below table describes one column in your data table.  Complete each row as follows:
+
+•	Description: Please give a specific definition of the column name. This can be lengthy.
+•	Unit: Identify units for all numeric variables.
+•	Code explanation: If you use codes in your column, please explain in this way: e.g., LR=Little Rock Lake, A=Sample suspect, J=Nonstandard routine followed
+•	Date format: Please tell us exactly how the date and time is formatted: e.g. mm/dd/yyyy hh:mm:ss plus the time zone and whether or not daylight savings was observed.  ISO date format of YYYY-MM-DD or YYYY-MM-DD hh:mm:ss is preferred.
+•	Missing value code: If a code for ‘no data’ is used, please specify: e.g., -99999
+
+
+```{r}
+
+path_templates <- paste0(getwd(), "/EML/data_attributes")
+path_data <- paste0(getwd(), "/clean_data")
+
+
+data_attributes <-  EMLassemblyline::template_table_attributes(
+  path = path_templates,
+  data.path = path_data,
+  data.table = "2016_and_2019_soil_wood_samples_loc.csv")
+
+## Next step!
+##Figure out a how to create a table with all the column names and unique values in each column.
+##See table template in Li's metadata master spread sheet
+
+```
+
+
+
+
+### Spatial data objects
+<!-- CHECK CHECK CHECK -->
+(List any geospatial data objects you would like to archive. Organize spatial data into .zip directories
+and describe each.)
+Directory name: (A short name for the data)
+Directory description: (A brief description of the data)
+
+Horizontal Coordinate System Name (e.g. WGS_1984_UTM_Zone_12N)
+Horizontal Accuracy Report
+Vertical Accuracy Report
+Cell Size X Direction
+Cell Size Y Direction
+Raster Origin (e.g. Upper Left)
+Number of Rows
+Number of Columns
+Number of Verticals
+Cell Geometry (e.g. pixel)
+
+
+### Scripts/code (software)
+_List any software scripts/code you would like to archive along with your data. These may include processing scripts you wrote to create, clean, or analyze the data._
+
+
+
+### Other objects (misc.)
+_List any other objects (e.g. .zip, .pdf, etc.) you would like to archive._
+
+### Articles
+_List articles citing this dataset_
+
+
+### Notes and Comments
+
+
+
+
+
+
+
+

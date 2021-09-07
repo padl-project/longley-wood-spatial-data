@@ -69,15 +69,16 @@ length(list.files(raw_data_path))
 shp_1 <- read_sf("raw_data/All_Samples_Adj.shp") %>% 
   clean_names()
 
-unique_values <- shp_1 %>% 
-  select(type, grain, origin, island, name, org_c_bin, species, sample_yr) %>% 
-  distinct()
 
 ```
 
 
 ## Save as a data_object
 ```{r}
-write_csv(shp_1, here::here("edi.test/data_objects/2016_and_2019_restoration_samples.csv"))
+
+dir.create(paste0(getwd(),"/clean_data"))
+
+write_csv(shp_1, here::here("clean_data/2016_and_2019_soil_wood_samples_loc.csv"))
+
 ```
 

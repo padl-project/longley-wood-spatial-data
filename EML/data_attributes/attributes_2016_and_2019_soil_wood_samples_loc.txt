@@ -1,0 +1,20 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+type		categorical				
+grain		categorical				
+origin		categorical				
+lat		numeric	!Add units here!			
+long		numeric	!Add units here!			
+island		character				
+name		character				
+dbd		numeric	!Add units here!			
+org_c_per		numeric	!Add units here!			
+species		categorical				
+x		numeric	!Add units here!			
+y		numeric	!Add units here!			
+crown_ras		categorical				
+com_ras		categorical				
+type_ras		categorical				
+sample_yr		numeric	!Add units here!			
+org_c_bin		categorical				
+dbd_avg		numeric	!Add units here!			
+geometry		character				
