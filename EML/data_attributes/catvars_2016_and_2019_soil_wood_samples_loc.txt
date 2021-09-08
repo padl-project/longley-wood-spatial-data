@@ -1,0 +1,39 @@
+attributeName	code	definition
+com_ras	Cocos	
+com_ras	Cocos/Heliotropium	
+com_ras	Heliotropium-Scaevola	
+com_ras	Hibiscus	
+com_ras	Lepturus-Fimbristylis	
+com_ras	Pandanus	
+com_ras	Pisonia	
+com_ras	Pisonia/Heliotropium	
+com_ras	Scaevola-Heliotropium	
+crown_ras	Bare Ground	
+crown_ras	Cocos nucifera	
+crown_ras	Heliotropium foertherianum	
+crown_ras	Hernandia nymphaeifolia	
+crown_ras	Hibiscus tiliaceus	
+crown_ras	Pandanus tectorius	
+crown_ras	Pisonia grandis	
+crown_ras	Scaevola sericea	
+crown_ras	Terminalia catappa	
+grain	Lagoon	
+grain	Leeward	
+grain	Windward	
+org_c_bin	High	
+org_c_bin	Low	
+org_c_bin	Med	
+origin	Man-made	
+origin	Manmade	
+origin	Natural	
+species	Cocos	
+species	Heliotropium	
+species	Hibiscus	
+species	Mixed	
+species	Pandanus	
+species	Pisonia	
+species	Scaevola	
+type	Hetero	
+type	Homo	
+type_ras	Hetero	
+type_ras	Homo	

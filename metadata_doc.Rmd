@@ -9,25 +9,49 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
 library(EMLassemblyline)
+library(kableExtra)
+library(pander)
 
 ```
 
 ### Dataset Title
 _Include what, where, and when in the dataset title_
 
-Body size data for Cane Spider, Palmyra Atoll, 2009,2010 and 2015
+ 2009 and 2016 soil and/ wood density samples location used in the carbon storage analysis at Palmyra Atoll
 
 
 ### Abstract
 _Include what, why, where, when, and how_
 
+|Information| Description |
+|-----------|------------|
+|What|  |
+|Why|  |
+|Where | |
+|When |  |
+|How|  |
+
+
+
 ### Creators
 _These are the people who will show up as authors in the dataset citation. These are the individuals who have provided intellectual or other significant contributions to the creation of this dataset_
+
+|First Name| Middle Initial | Last Name | Organization | email address | ORCID ID |
+|-----------|------------|--------------|--------------|---------------|----------|
+|           |            |              |              |               |          |
+|           |            |              |              |               |          |
+|           |            |              |              |               |          |
+
+
 
 ### Other personnel names and roles 
 _Who should a data user contact with questions about these data? You must enter a person or organization name to serve as the contact for this dataset.  You may also list other personnel who participated in the project (such as field crew, lab tech, data entry etc.) in this table with optional fields e-mail addresses, organization and ORCID ID._
 
-
+|First Name| Middle Initial | Last Name | Organization | email address | ORCID ID |
+|-----------|------------|--------------|--------------|---------------|----------|
+|           |            |              |              |               |          |
+|           |            |              |              |               |          |
+|           |            |              |              |               |          |
 
 ### License 
 <!-- (Select a license for release of your data. We have 2 recommendations: CCO – most accommodating of data reuse, & CCBY – requires attribution).  -->
@@ -71,23 +95,68 @@ Each row in the below table describes one column in your data table.  Complete e
 •	Missing value code: If a code for ‘no data’ is used, please specify: e.g., -99999
 
 
-```{r}
+```{r, echo = FALSE, message= FALSE, warning= FALSE}
 
+## Location of datasets in the package
 path_templates <- paste0(getwd(), "/EML/data_attributes")
 path_data <- paste0(getwd(), "/clean_data")
 
 
-data_attributes <-  EMLassemblyline::template_table_attributes(
+
+## Creating the attribute .txt
+EMLassemblyline::template_table_attributes(
   path = path_templates,
   data.path = path_data,
   data.table = "2016_and_2019_soil_wood_samples_loc.csv")
 
-## Next step!
-##Figure out a how to create a table with all the column names and unique values in each column.
-##See table template in Li's metadata master spread sheet
+
+data_attributes <- read.delim2("EML/data_attributes/attributes_2016_and_2019_soil_wood_samples_loc.txt") %>% 
+  mutate(unit = case_when(unit == "!Add units here!" ~ "*"))
+
+
 
 ```
 
+
+
+```{r, echo=FALSE}
+panderOptions('table.alignment.default', function(df)
+    ifelse(sapply(df, is.numeric), 'right', 'left'))
+panderOptions('table.split.table', Inf)
+panderOptions('big.mark', ",")
+panderOptions('keep.trailing.zeros', TRUE)
+panderOptions('missing', '')
+panderOptions('graph.fontsize', '5')
+
+pander(data_attributes)
+```
+
+#### Attributes code
+
+```{r, echo = FALSE, message= FALSE, warning= FALSE}
+
+EMLassemblyline::template_categorical_variables(
+  path = path_templates, 
+  data.path = path_data)
+
+cat_vars <- read.delim2("EML/data_attributes/catvars_2016_and_2019_soil_wood_samples_loc.txt")
+
+```
+
+
+```{r, echo=FALSE}
+## Setting pander table settings
+panderOptions('table.alignment.default', function(df)
+    ifelse(sapply(df, is.numeric), 'right', 'left'))
+panderOptions('table.split.table', Inf)
+panderOptions('big.mark', ",")
+panderOptions('keep.trailing.zeros', TRUE)
+panderOptions('missing', '')
+panderOptions('graph.fontsize', '5')
+
+## knit as a table
+pander(cat_vars)
+```
 
 
 
