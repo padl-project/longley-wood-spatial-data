@@ -1,0 +1,33 @@
+---
+title: "Saving files to Drive"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(googledrive)
+library(tidyverse)
+```
+
+## Upload to dive
+```{r}
+
+## Finalized data forlder url
+final_files_url <- "https://drive.google.com/drive/folders/1GjdqDmSqWS7ut7cXrIPW-qTHHEIl24XS"
+
+## Upload weather data
+drive_upload(media = paste0(getwd(),"/clean_data/2016_and_2019_soil_wood_samples_loc.csv"),
+             path = as_id(final_files_url),
+             name = "2016_2019_soil_wood_sample_loc.csv",
+             type = "csv")
+
+
+## Upload metadata
+drive_upload(media = paste0(getwd(),"/metadata_doc.docx"),
+             path = as_id(final_files_url),
+             name = "longley-wood_metadata.docx",
+             type = "docx")
+
+```
+
