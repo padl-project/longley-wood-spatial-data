@@ -1,7 +1,7 @@
 ---
 title: "Soil and Wood Sample Sites Metadata"
 author: "Kate Longley-Wood"
-date: "9/10/2021"
+date: "9/27/2021"
 output: word_document
 ---
 
@@ -10,48 +10,47 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
 library(EMLassemblyline)
-library(kableExtra)
-library(pander)
+library(flextable)
 
 ```
 
-Please revise and fill in missing information highlighted in yellow. The information in this documet will be used to create the EML of the data packege to be published on the Environmenta Data Initiative (EDI) repository.
+Please revise and fill in as much information as possible. Fields highlighted in yellow must be completed.
 
-### Data Package Title
+
+The information in this document will be used to create the EML of the data package to be published on the [Environmental Data Initiative (EDI) repository](https://portal.edirepository.org/nis/home.jsp).
+
+## 1. Data Package Title
 Palmyra Atoll soil and/or wood density sampling locations used in the carbon storage analysis
 
-### Dataset Title
+## 2. Dataset Title
 <!--_Include what, where, and when in the dataset title_-->
 
  2009_2016_soil_wood_samples_location_plamyra
 
 
-### Abstract
-_Include what, why, where, when, and how_
+## 3. Abstract
+_Please provide an abstract specifically of the dataset. This is different from the abstract of an associated publication. Include what, why, where, when, and how_
 
-|Information| Description |
-|-----------|------------|
-|What| Soil and/or wood density sampling locations |
-|Why|  |
-|Where |Palmyra Atoll |
-|When | 2009 and 2016 |
-|How|  |
+[See example here](https://docs.google.com/document/d/1KdHJObHl5Bxxr9t0LISTwX0cCSVvx7NPUjz5T_P9JEc/edit#)
 
 
 
-### Creators
-_These are the people who will show up as authors in the dataset citation. These are the individuals who have provided intellectual or other significant contributions to the creation of this dataset. Please add the information of all individulas that should be part of the authroship of this dataset_
+
+## 4. Creators
+_These are the people who will show up as authors in the dataset citation. These are the individuals who have provided intellectual or other significant contributions to the creation of this dataset. **Please add a row with the information of each individual that should be part of the authorship of this dataset.**_
+
+**We highly encourage you to create an ORCID if you don't already have one.** [Find more information here.](https://info.orcid.org/what-is-orcid/)
 
 ```{r, creator table, echo = FALSE, message= FALSE, warning= FALSE}
 
 first_name <- c("Kate", "")
 middle_in <- c("", "")
 last_name <- c("Longley-Wood", "")
-organization <- c("The Nature Concervancy", "")
+organization <- c("The Nature Conservancy", "")
 email <- c("kathryn.longley-wood@tnc.org", "")
 orcid <- c("", "")
 
-creator_colname <- c("First Name", "Middle Initial", "Last Name", "Organization", "e-mail address", "ORCID ID")
+creator_colname <- c("First Name", "Middle Initial", "Last Name", "Organization", "email address", "ORCID ID")
 
 creator_table <- tibble(first_name, middle_in, last_name, organization, email, orcid)
 
@@ -60,37 +59,39 @@ colnames(creator_table) <- creator_colname
 ```
 
 
-```{r, creators table export, echo=FALSE, message= FALSE, warning= FALSE}
+```{r, creators table export, echo=FALSE, message= FALSE, warning= FALSE, results = 'asis'}
 
-panderOptions('table.alignment.default', function(df)
-    ifelse(sapply(df, is.numeric), 'right', 'left'))
-panderOptions('table.split.table', Inf)
-panderOptions('big.mark', ",")
-panderOptions('keep.trailing.zeros', TRUE)
-panderOptions('missing', '')
-panderOptions('graph.fontsize', '5')
+set_flextable_defaults(big.mark = " ", 
+  font.size = 10, 
+  theme_fun = theme_box)
 
-pander(creator_table)
+
+flextable::flextable(creator_table) %>% 
+  autofit(add_w = 0.1, add_h = 0.1, part = c("body", "header"), unit = "in")
 ```
 
 
-### Other personnel names and roles 
+## 5. Other personnel names and roles 
 
-_Who should a data user contact with questions about these data?_
+_Who should a data user contact with questions about this data?_
 _There must be at least one person or organization name to serve as the contact for this dataset._
-_You may also list other personnel who participated in the project (such as field crew, lab tech, data entry etc.) in this table with optional fields e-mail addresses, organization and ORCID ID._
+_You may also list other personnel who participated in the project (such as field crew, lab tech, data entry, etc.) in this table with optional fields e-mail addresses, organization, and ORCID ID._
+
+
+**We highly encourage you to create an ORCID if you don't already have one.** [Find more information here.](https://info.orcid.org/what-is-orcid/)
+
 
 ```{r, personnel table, echo = FALSE, message= FALSE, warning= FALSE}
 
 p_first_name <- c("Kate", "")
 p_middle_in <- c("", "")
 p_last_name <- c("Longley-Wood", "")
-p_organization <- c("The Nature Concervancy", "")
+p_organization <- c("The Nature Conservancy", "")
 p_email <- c("kathryn.longley-wood@tnc.org", "")
 p_orcid <- c("", "")
 p_role <- c("contact", "")
 
-personnel_colnames <- c("First Name", "Middle Initial", "Last Name", "Organization", "e-mail address", "ORCID ID", "Role in project")
+personnel_colnames <- c("First Name", "Middle Initial", "Last Name", "Organization", "email address", "ORCID ID", "Role in project")
 
 
 personnel_table <- tibble(p_first_name, p_middle_in, p_last_name, p_organization, p_email, p_orcid, p_role)
@@ -102,47 +103,38 @@ colnames(personnel_table) <- personnel_colnames
 
 ```{r, personnel table export, echo=FALSE, message= FALSE, warning= FALSE}
 
-panderOptions('table.alignment.default', function(df)
-    ifelse(sapply(df, is.numeric), 'right', 'left'))
-panderOptions('table.split.table', Inf)
-panderOptions('big.mark', ",")
-panderOptions('keep.trailing.zeros', TRUE)
-panderOptions('missing', '')
-panderOptions('graph.fontsize', '5')
-
-pander(personnel_table)
+flextable::flextable(personnel_table) %>% 
+  width(width = 1)
 ```
 
 
-### License 
-Select a license for release of your data.
+## 6. License 
+_**Please highlight** the license for the release of your data. Click on the license name for more information._ 
 
-[CCO – most accommodating of data reuse](https://creativecommons.org/publicdomain/zero/1.0/)
+[CCO](https://creativecommons.org/publicdomain/zero/1.0/)
+
+**Recommended**. The easier you make it for people to reuse your data, the more likely it is that your data will be reused.
+
+Public Domain Dedication, aka “No Rights Reserved.” This one means, “If I hold copyright in this, I waive it. And if we’re dealing with a country where we can’t waive copyright, here’s a broad public license with no attribution requirement. And just as a backup, I also promise not to sue you for copyright or related stuff if you use this.”
 
 or
 
-[CCBY – requires attribution](https://creativecommons.org/licenses/by/4.0/)
+[CCBY](https://creativecommons.org/licenses/by/4.0/)
 
-You want your data to be published under:
-
-### Keywords
-_Using keywords from a controlled vocabulary (CV) will improve the future discovery and reuse of your data.  The LTER CV is a good source for keywords. Access the [LTER CV here](https://vocab.lternet.edu/vocab/vocab/index.php).  Also, please determine one or two keywords that best describe your lab, station, and/or project (e.g., Trout Lake Station, NTL LTER).). Add as many rows to this table as needed_
-
-|Keyword|
-|-------|
-|Palmyra Atoll|
-|Wood Samples  |
-|Soil Samples  |
-|  |
-|  |
-|  |
-|  |
-|  |
-|  |
+Attribution is required. CC licenses require that those who reuse a work provide attribution to the work’s creator by retaining “identification of the creator(s) of the Licensed Material and any others designated to receive attribution, in any reasonable manner requested by the Licensor (including by pseudonym if designated).” This makes great sense for photos, articles, and music that creators share with a CC license.
 
 
+## 7. Keywords
+_Using keywords from a controlled vocabulary (CV) will improve your data's future discovery and reuse.  The LTER CV is a good source for keywords. Access the [LTER CV here](https://vocab.lternet.edu/vocab/vocab/index.php).  Also, please determine one or two keywords that best describe your lab, station, and/or project (e.g., Trout Lake Station, NTL LTER).). Add as many rows to this table as needed_
 
-### Funding of this work
+- Palmyra Atoll
+- Wood sample location
+- Soil sample location
+
+  
+
+
+## 8. Funding of this work
 _List only the main PI of a grant that supported this project, starting with the main grant first.  Add rows to the table if several grants were involved._
 
 
@@ -169,60 +161,71 @@ colnames(funding_table) <- fund_colnames
 
 ```{r, funding table export, echo=FALSE, message= FALSE, warning= FALSE}
 
-panderOptions('table.alignment.default', function(df)
-    ifelse(sapply(df, is.numeric), 'right', 'left'))
-panderOptions('table.split.table', Inf)
-panderOptions('big.mark', ",")
-panderOptions('keep.trailing.zeros', TRUE)
-panderOptions('missing', '')
-panderOptions('graph.fontsize', '5')
-
-pander(funding_table)
+flextable::flextable(funding_table) %>% 
+  width(width = 1)
+  
 ```
 
 
 
-### Timeframe
-|Information| Description|
-|-----------|------------|
-|Begin date| 2016 |
-|End date | 2019 |
-|Data collection ongoing or completed?|Completed  |
+## 9. Timeframe
 
-### Geographic location
+```{r, timefram table, echo = FALSE, message= FALSE, warning= FALSE}
 
-_Use decimal degrees to define a point or a bounding box. Copy this block to add multiple points or areas._
+Information <- c("Begin date", "End date", "Is data collection ongoing or completed?")
+
+Description <- c("2016", "2019", "Completed")
+
+timeframe_table <- tibble(Information, Description)
+
+flextable::flextable(timeframe_table) %>% 
+  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
+
+```
+
+
+
+## 10. Geographic location
+
+_Use decimal degrees to define a point or a bounding box. **Copy this block to add multiple points or areas.**_
+Every point you add will be displayed on a map once the data package is published. [See Example here](https://portal.edirepository.org/nis/mapbrowse?scope=knb-lter-sbc&identifier=108)
 
 **Verbal description:** Palmyra Atoll
 
-|Direction|Coordinate|
-|----------|----------|
-|North bound| 5.88333 |
-|South bound| 5.871  |
-|East bound | -162.043 |
-|West bound | -162.083 |
+```{r, geographic location table, echo = FALSE, message= FALSE, warning= FALSE}
+
+Directions <- c("Northbound", "Southbound", "Eastbound", "Westbound")
+
+Coordinate <- c(5.88333, 5.871, -162.043, -162.083)
+
+geo_loc_table <- tibble(Directions, Coordinate)
+
+flextable(geo_loc_table) %>% 
+  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
+
+```
 
 
-
-
-### Methods
+## 11. Methods
 _Be specific about the study design and field and lab methods for collecting and processing the data. Include instrument descriptions and protocol citations._
 
+Find an example [in this link](https://docs.google.com/document/d/1KdHJObHl5Bxxr9t0LISTwX0cCSVvx7NPUjz5T_P9JEc/edit#)
 
-### Data Provenance
 
-_Were these data derived from other data? If so, you will want to document this information so users know where these data came from.  Please specify the source datasets used in the below provenance table, preferably with their DOI or URL.  An example of a dataset derived from several others is here._
+## 12. Data Provenance
+
+_Is this data derived from other data? If so, you will want to document this information so users know where this data came from.  Please specify the source datasets used in the below provenance table, preferably with their DOI or URL.  [Here an example of a dataset derived from several others](https://portal.edirepository.org/nis/mapbrowse?packageid=edi.101.3)._
 
 
 
 ```{r, data provenance, echo = FALSE, message= FALSE, warning= FALSE}
 
-data_title <- "data title here"
-data_doi_url <- ""
-creator_name <- ""
-contact_email <- ""
+data_title <- c("data title here", " ")
+data_doi_url <- c("", "")
+creator_name <- c("", "")
+contact_email <- c("", "")
 
-provenance_colnames <- c("Dataset title", "Dataset DOI or URL", "Creator Name", "Contact E-mail")
+provenance_colnames <- c("Dataset title", "Dataset DOI or URL", "Creator Name", "Contact Email")
 
 
 provenance_table <- tibble(data_title, data_doi_url, creator_name, contact_email)
@@ -232,32 +235,25 @@ colnames(provenance_table) <- provenance_colnames
 ```
 
 
-```{r, funding table, export, echo=FALSE, message= FALSE, warning= FALSE}
+```{r, provence table, export, echo=FALSE, message= FALSE, warning= FALSE}
 
-panderOptions('table.alignment.default', function(df)
-    ifelse(sapply(df, is.numeric), 'right', 'left'))
-panderOptions('table.split.table', Inf)
-panderOptions('big.mark', ",")
-panderOptions('keep.trailing.zeros', TRUE)
-panderOptions('missing', '')
-panderOptions('graph.fontsize', '5')
-
-pander(provenance_colnames)
+flextable::flextable(provenance_table) %>% 
+  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
 ```
 
 
 
-### Data Table
+## 13. Data Table
 
 Each row in the below table describes one column in your data table.  Complete each row as follows:
 
 - **Description:** Please give a specific definition of the column name. This can be lengthy.
 - **Unit:** Identify units for all numeric variables. All rows where there is an * under the unit column must be filled in with a unit.
-- **Date format:** Please tell us exactly how the date and time is formatted: e.g. mm/dd/yyyy hh:mm:ss plus the time zone and whether or not daylight savings was observed.  ISO date format of YYYY-MM-DD or YYYY-MM-DD hh:mm:ss is preferred.
-- **Missing value code:** If a code for ‘no data’ is used, please specify: e.g., -99999
-- **Missing value code Explanation:** Why are this calues missing? e.g: value not available, value not recorded.
+- **Date format:** Please tell us exactly how the date and time are formatted: e.g. mm/dd/yyyy hh:mm:ss, plus the time zone and whether or not daylight savings was observed.  ISO date format of YYYY-MM-DD or YYYY-MM-DD hh:mm:ss is preferred.
+- **Missing value code:** If a code for ‘no data’ is used, please specify: e.g., -99999, NA
+- **Missing value code Explanation:** Why are these values missing? e.g: value not available, value not recorded.
 
-- **Table name:** (A short name for this table)
+- **Table name:** (Add a short name for this table)
 - **Table description:** (Add brief description of table contents)
 
 
@@ -285,24 +281,18 @@ data_attributes <- read.delim2("EML/data_attributes/attributes_2016_and_2019_soi
 
 
 ```{r, attribute table, echo=FALSE, message= FALSE, warning= FALSE}
-## Sttings for the pander table
-panderOptions('table.alignment.default', function(df)
-    ifelse(sapply(df, is.numeric), 'right', 'left'))
-panderOptions('table.split.table', Inf)
-panderOptions('big.mark', ",")
-panderOptions('keep.trailing.zeros', TRUE)
-panderOptions('missing', '')
-panderOptions('graph.fontsize', '5')
 
-## Rendering attributes into a table
-pander(data_attributes)
+flextable::flextable(data_attributes) %>% 
+  width(width = 1)
+
 ```
 
 
 
-### Attributes code
+## 14. Attributes code
 
-_If you use codes in your column, please define each code in the following table. Fill in only if necessary_ 
+_If you use codes in your column, please define each code in the following table. **Fill in only if necessary**_ 
+
 
 ```{r, attribute code, echo = FALSE, message= FALSE, warning= FALSE}
 
@@ -316,17 +306,11 @@ cat_vars <- read.delim2("EML/data_attributes/catvars_2016_and_2019_soil_wood_sam
 
 
 ```{r, categorical variables table, echo=FALSE, message= FALSE, warning= FALSE}
-## Setting pander table settings
-panderOptions('table.alignment.default', function(df)
-    ifelse(sapply(df, is.numeric), 'right', 'left'))
-panderOptions('table.split.table', Inf)
-panderOptions('big.mark', ",")
-panderOptions('keep.trailing.zeros', TRUE)
-panderOptions('missing', '')
-panderOptions('graph.fontsize', '5')
 
-## knit as a table
-pander(cat_vars)
+flextable::flextable(cat_vars) %>% 
+  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
+  #width(width = 1)
+
 ```
 
 
@@ -350,20 +334,19 @@ Number of Verticals
 Cell Geometry (e.g. pixel) -->
 
 
-### Scripts/code (software)
+## 15. Scripts/code (software)
 
 _List any software scripts/code you would like to archive along with your data. These may include processing scripts you wrote to create, clean, or analyze the data._
 
-File name	Description	Scripting language
 
 ```{r, script info, echo = FALSE, message= FALSE, warning= FALSE}
 
-file_name <- "file name here"
+file_name <- "filename here"
 description <- ""
 language <- ""
 
 
-script_info_colnames <- c("File name", "Description", "Scripting language")
+script_info_colnames <- c("Filename", "Description", "Scripting language")
 
 
 script_info <- tibble(file_name, description, language)
@@ -375,33 +358,27 @@ colnames(script_info) <- script_info_colnames
 
 ```{r, script info export, echo=FALSE, message= FALSE, warning= FALSE}
 
-panderOptions('table.alignment.default', function(df)
-    ifelse(sapply(df, is.numeric), 'right', 'left'))
-panderOptions('table.split.table', Inf)
-panderOptions('big.mark', ",")
-panderOptions('keep.trailing.zeros', TRUE)
-panderOptions('missing', '')
-panderOptions('graph.fontsize', '5')
-
-pander(script_info)
+flextable::flextable(script_info) %>% 
+  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
 ```
 
 
 
 
-### Other objects (misc.)
+## 16. Other objects (misc.)
 _List any other objects (e.g. .zip, .pdf, etc.) you would like to archive._
 
+**Note:** At the moment, we are not including any photographic data.
 
 
 ```{r, other objects, echo = FALSE, message= FALSE, warning= FALSE}
 
-misc_file_name <- "file name here"
+misc_file_name <- "filename here"
 misc_description <- ""
 misc_data_type <- ""
 
 
-other_obj_colnames <- c("File name", "Description", "Data type")
+other_obj_colnames <- c("Filename", "Description", "Data type")
 
 other_objects <- tibble(misc_file_name, misc_description, misc_data_type)
 
@@ -412,19 +389,12 @@ colnames(other_objects) <- other_obj_colnames
 
 ```{r, other objects export, echo=FALSE, message= FALSE, warning= FALSE}
 
-panderOptions('table.alignment.default', function(df)
-    ifelse(sapply(df, is.numeric), 'right', 'left'))
-panderOptions('table.split.table', Inf)
-panderOptions('big.mark', ",")
-panderOptions('keep.trailing.zeros', TRUE)
-panderOptions('missing', '')
-panderOptions('graph.fontsize', '5')
-
-pander(other_objects)
+flextable::flextable(other_objects) %>% 
+  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
 ```
 
 
-### Articles
+## 17. Articles
 _List articles citing this dataset_
 
 
@@ -446,20 +416,13 @@ colnames(publications) <- publications_colnames
 
 ```{r, publications export, echo=FALSE, message= FALSE, warning= FALSE}
 
-panderOptions('table.alignment.default', function(df)
-    ifelse(sapply(df, is.numeric), 'right', 'left'))
-panderOptions('table.split.table', Inf)
-panderOptions('big.mark', ",")
-panderOptions('keep.trailing.zeros', TRUE)
-panderOptions('missing', '')
-panderOptions('graph.fontsize', '5')
-
-pander(publications)
+flextable::flextable(publications) %>% 
+  autofit(add_w = 0.2, add_h = 0.1, part = c("body", "header"), unit = "in")
 ```
 
 
-### Notes and Comments
-
+## Notes, Comments, and Questions
+_Please let us know if you have any additional comments or questions about your data or the EML information. THANK YOU!_
 
 
 
