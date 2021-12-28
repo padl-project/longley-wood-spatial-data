@@ -41,5 +41,5 @@ eml_in_template <- generate_EML_Assemblyline(
   dataset_id_input = dataset_id)
 
 # Export EML --------------------------------------------------------------------
-do.call(make_eml, eml_in_template[names(eml_in_template) %in% names(formals(make_eml))])
+write_eml_excel(eml_in_template)
 
