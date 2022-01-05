@@ -1,0 +1,65 @@
+---
+title: "Download Files"
+author: "Camila Vargas"
+date: "12/28/2021"
+output: html_document
+---
+
+This script downloads data from a specific folder on our Google Drive
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(googledrive)
+library(here)
+library(tidyverse)
+
+
+## Sets R not to use scientific notations
+options(scipen=999) 
+
+# If it does not exist, create raw data folders 
+
+dir.create(here::here("6.raw_data"))
+
+dir.create(here::here("7.clean_data"))
+
+
+```
+
+## Download data files into local computer
+
+Make sure the file path on the code is updated to the correct folder.
+
+
+```{r download files}
+# url of folder where the data lives
+# Copy pasete the url of the folder where the data lives
+
+folder_url <- "https://drive.google.com/drive/u/1/folders/147LKKPVtnKlVhYleWKtK2DaGoj3d18ho"
+
+# list of files inside the folder
+files <- drive_ls(as_id(folder_url)) %>% 
+  filter(name != "initial files")
+
+
+## Download all file to local computer. Need all files to be able to read the shapefile
+purrr::walk2(
+    map(files$id, as_id),
+    paste0("6.raw_data/", files$name),
+    drive_download,
+    overwrite = TRUE
+  )
+
+```
+
+## Check all files were downloaded 
+```{r}
+## File path to raw data used in this script
+raw_data_path <- paste0(getwd(), "/6.raw_data")
+
+# Count files inside the raw_data forder to make sure the number of files downloaded is what is expected.
+length(list.files(raw_data_path))
+
+```
+

@@ -22,47 +22,10 @@ library(sf)
 ## Sets R not to use scientific notations
 options(scipen=999) 
 
-# Create raw data folders 
-dir.create(paste0(getwd(),"/raw_data"))
-
 
 ```
 
 
-## Download data files into local computer
-
-Make sure the file path on the code is updated to the correct folder. 
-
-```{r download files}
-# url of folder where the data lives
-# Copy pasete the url of the folder where the data lives
-
-folder_url <- "https://drive.google.com/drive/u/1/folders/147LKKPVtnKlVhYleWKtK2DaGoj3d18ho"
-
-# list of files inside the folder
-files <- drive_ls(as_id(folder_url)) %>% 
-  filter(name != "initial files")
-
-
-## Download all file to local computer. Need all files to be able to read the shapefile
-purrr::walk2(
-    map(files$id, as_id),
-    paste0("6.raw_data/", files$name),
-    drive_download,
-    overwrite = TRUE
-  )
-
-```
-
-## Check all files were downloaded 
-```{r}
-## File path to raw data used in this script
-raw_data_path <- paste0(getwd(), "/6.raw_data")
-
-# Count files inside the raw_data forder to make sure the number of files downloaded is what is expected.
-length(list.files(raw_data_path))
-
-```
 
 
 ## Read in shapefile
@@ -78,13 +41,25 @@ plot(shp_1$geometry)
 ```
 
 
+## Explore
+Look into data and select all columsn that need to go into a separate csv
+```{r}
+colnames(shp_1)
 
-## Save as a data_object
+## remove geometry col
+
+final_csv <- shp_1 %>% 
+  clean_names() %>% 
+  select(-geometry)
+
+```
+
+
+
+## Save data frame as csv
 ```{r}
 
-dir.create(paste0(getwd(),"/7.clean_data"))
-
-write_csv(shp_1, here::here("7.clean_data/2016_and_2019_soil_wood_samples_loc.csv"))
+write_csv(final_csv, here::here("7.clean_data/soil_wood_samples_loc_info_2016_2019.csv"))
 
 ```
 
