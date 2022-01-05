@@ -42,7 +42,7 @@ plot(shp_1$geometry)
 
 
 ## Explore
-Look into data and select all columsn that need to go into a separate csv
+Look into data and select all columns that need to go into a separate csv
 ```{r}
 colnames(shp_1)
 
@@ -50,7 +50,10 @@ colnames(shp_1)
 
 final_csv <- shp_1 %>% 
   clean_names() %>% 
+  as_tibble() %>% 
   select(-geometry)
+
+colnames(final_csv)
 
 ```
 
