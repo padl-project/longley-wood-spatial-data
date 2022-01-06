@@ -1,1 +1,7 @@
 givenName	middleInitial	surName	organizationName	electronicMailAddress	userId	role	projectTitle	fundingAgency	fundingNumber
+Kate		Longley-Wood	The Nature Conservancy	kathryn.longley- wood@tnc.org	0000- 0002- 7067-1059	creator	klongley		
+Mary		Engels	University of Idaho	engels@uidaho.edu	0000- 0001- 6975-0852	creator	mengels		
+Kate		Longley-Wood	The Nature Conservancy	kathryn.longley- wood@tnc.org	0000- 0002- 7067-1059	contact	klongley		
+Alex		Wegmann	The Nature Conservancy	alex.wegmann@tnc.org	https://orcid.org/0000-0002-0595-7552	PI	aweg		Wildlife Conservation Society Climate Adaptation Fund
+Hillary		Young	University of California Santa Barbara	hillary.young@lifesci.ucsb.edu		PI	hyoung		National Science Foundation 
+Camila		Vargas Poulsen	"PADL Data Manager, Univerity of California Santa Barbara"	camilavargas@ucsb.edu		associated party	cvargas		

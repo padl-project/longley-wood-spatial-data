@@ -1,1 +1,3 @@
-﻿
+This dataset provided soil and/or wood density sampling locations and values from Palmyra Atoll (2016 and 2019). Soil samples were extracted to measure organic carbon content associated with different vegetation communities in Palmyra. Wood samples were collected to measure basic wood density values for dominant woody vegetation types found in Palmyra to calculate aboveground carbon values. 
+A small sample of soil was extracted at each soil sampling location, and the soil volume and hardpan depth were measured at that location. Soil samples were then processed and analyzed for soil carbon content.
+A single woody branch approximately 10 cm in length was removed from each tree and cut into discs at each wood sampling location. Measuring the wood saturated volume and the dried volume of these discs allowed for the calculation of basic wood density. 

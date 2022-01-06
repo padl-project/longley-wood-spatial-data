@@ -1,2 +1,2 @@
 id	unitType	parentSI	multiplierToSI	description
-gramPerCubicMeter massDensity kilogramPerCubicMeter 0.001 grams per meter cube
+gramsPerCubicMeter	massDensity	kilogramPerCubicMeter	0.001	grams per meter cube
