@@ -45,3 +45,7 @@ vignettes/*.pdf
 
 ## omit clean_data folder and everything inside
 7.clean_data/
+
+
+## EMLasselblyline folder
+edi.1045/
