@@ -51,6 +51,8 @@ colnames(shp_1)
 final_csv <- shp_1 %>% 
   clean_names() %>% 
   as_tibble() %>% 
+  mutate(origin = case_when(origin == "Manmade" ~ "Man-made",
+                            T ~ origin)) %>% 
   select(-geometry)
 
 colnames(final_csv)

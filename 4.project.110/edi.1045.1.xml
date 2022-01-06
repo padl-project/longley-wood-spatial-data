@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" packageId="edi.1045.1" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd https://eml.ecoinformatics.org/eml-2.2.0/eml.xsd" system="edi">
+  <access authSystem="https://pasta.edirepository.org/authentication" order="allowFirst" scope="document">
+    <allow>
+      <principal>uid=palmyra_project,o=EDI,dc=edirepository,dc=org</principal>
+      <permission>all</permission>
+    </allow>
+    <allow>
+      <principal>public</principal>
+      <permission>read</permission>
+    </allow>
+  </access>
+  <dataset>
+    <title>Palmyra Atoll soil and/or wood density sampling locations used in the carbon storage analysis</title>
+    <creator>
+      <individualName>
+        <givenName>Kate</givenName>
+        <surName>Longley-Wood</surName>
+      </individualName>
+      <organizationName>The Nature Conservancy</organizationName>
+      <electronicMailAddress>kathryn.longley- wood@tnc.org</electronicMailAddress>
+    </creator>
+    <creator>
+      <individualName>
+        <givenName>Mary</givenName>
+        <surName>Engels</surName>
+      </individualName>
+      <organizationName>University of Idaho</organizationName>
+      <electronicMailAddress>engels@uidaho.edu</electronicMailAddress>
+    </creator>
+    <associatedParty>
+      <individualName>
+        <givenName>Camila</givenName>
+        <surName>Vargas Poulsen</surName>
+      </individualName>
+      <organizationName>PADL Data Manager, Univerity of California Santa Barbara</organizationName>
+      <electronicMailAddress>camilavargas@ucsb.edu</electronicMailAddress>
+      <role>associated party</role>
+    </associatedParty>
+    <pubDate>2022-01-05</pubDate>
+    <abstract>
+      <para>
+    This dataset provided soil and/or wood density sampling locations
+    and values from Palmyra Atoll (2016 and 2019). Soil samples were
+    extracted to measure organic carbon content associated with
+    different vegetation communities in Palmyra. Wood samples were
+    collected to measure basic wood density values for dominant woody
+    vegetation types found in Palmyra to calculate aboveground carbon
+    values.
+  </para>
+    </abstract>
+    <keywordSet>
+      <keyword>Palmyra Atoll</keyword>
+      <keyword>Wood Samples</keyword>
+      <keyword>Soil Samples</keyword>
+      <keyword>Carbon</keyword>
+      <keywordThesaurus>none</keywordThesaurus>
+    </keywordSet>
+    <intellectualRights>
+      <para>This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.
+</para>
+    </intellectualRights>
+    <coverage>
+      <geographicCoverage>
+        <geographicDescription>Palmyra Atoll</geographicDescription>
+        <boundingCoordinates>
+          <westBoundingCoordinate>-162.083</westBoundingCoordinate>
+          <eastBoundingCoordinate>-162.043</eastBoundingCoordinate>
+          <northBoundingCoordinate>5.88333</northBoundingCoordinate>
+          <southBoundingCoordinate>5.871</southBoundingCoordinate>
+        </boundingCoordinates>
+      </geographicCoverage>
+      <temporalCoverage>
+        <rangeOfDates>
+          <beginDate>
+            <calendarDate>2016</calendarDate>
+          </beginDate>
+          <endDate>
+            <calendarDate>2019</calendarDate>
+          </endDate>
+        </rangeOfDates>
+      </temporalCoverage>
+    </coverage>
+    <maintenance>
+      <description>completed</description>
+    </maintenance>
+    <contact>
+      <individualName>
+        <givenName>Kate</givenName>
+        <surName>Longley-Wood</surName>
+      </individualName>
+      <organizationName>The Nature Conservancy</organizationName>
+      <electronicMailAddress>kathryn.longley- wood@tnc.org</electronicMailAddress>
+    </contact>
+    <methods>
+      <methodStep>
+        <description>
+          <para>
+    At each sampling location, 1,000 – 2,000 ml of soil were removed
+    from the first 0-15 cm of soil with a small trowel and stored in a
+    sealable plastic bag. Because the coarse-textured nature of atoll
+    soils makes traditional coring difficult, we followed the water
+    method for sample volume (Page-Dumroese et al., 2010), which
+    determines volume by lining the sample hole with a thin plastic
+    layer and recording the volume of water needed to fill the hole to
+    the reference surface. Hardpan depth at each site was measured with
+    a soil probe. After collection, soil samples were passed through a 2
+    mm sieve, air-dried, and then the &lt;2 mm fraction was shipped to a
+    laboratory for carbon analysis.
+  </para>
+          <para>
+    The samples collected in 2016 were analyzed for both organic carbon
+    and total carbon percentage. Although the 2019 samples were analyzed
+    for total carbon only, the organic carbon fraction for the 2019
+    samples were estimated based on the relationship between total
+    carbon and organic carbon derived from the 2016 samples and samples
+    collected at another atoll in the tropical central Pacific.
+  </para>
+          <para>
+    Wood was collected at 18 different locations. As the location at
+    Palmyra was not expected to influence the variation of wood density,
+    the sites were not stratified by islet. Instead, they were collected
+    opportunistically to coincide with soil sampling locations. A single
+    woody branch approximately 10 cm in length was removed from each
+    tree and cut into discs at each sampling location.
+  </para>
+          <para>
+    To standardize sampling in a remote location with limited
+    facilities, woody density was measured (disc diameter and width) at
+    the fiber saturation point (Diana Smith, 1954) (discs were submerged
+    for 24 hours at ambient pressure) and the anhydrous state (measured
+    and weighed). We could not estimate fiber saturation point and
+    volumetric shrinkage in the field. These values were calculated as
+    the mean of values reported for 50 tropical tree species by the
+    Inter-American Institute for Cooperation on Agriculture (IICA)
+    (Cordero, 1971), except for <emphasis>P. grandis</emphasis>, for
+    which genera-specific values were reported. The ranges for both
+    values were narrow, and final BWD estimates were insensitive to
+    variation within reported ranges. With these coefficients, we
+    calculated BWD for native trees at Palmyra according to Vieilledent
+    et al. 2018 making them comparable to CIRAD values. BWD values for
+    Palmyra natives fell within the range reported for congeners in
+    CIRAD. These values are reported in Longley-Wood et al. 2022.
+  </para>
+          <para>
+    About this Data Package
+  </para>
+          <para>
+    The zip file has all the necessary files for spatial analysis of
+    this data. This means all shapefiles to identify the exact locations
+    of the samples.
+  </para>
+          <para>
+    Additionally, the .csv files has all the detailed information about
+    the samples (eg vegetation community type, islet name, etc.)
+  </para>
+        </description>
+      </methodStep>
+    </methods>
+    <project>
+      <title>No project title to report</title>
+      <personnel>
+        <individualName>
+          <givenName>Hillary</givenName>
+          <surName>Young</surName>
+        </individualName>
+        <organizationName>University of California Santa Barbara</organizationName>
+        <electronicMailAddress>hillary.young@lifesci.ucsb.edu</electronicMailAddress>
+        <role>Principal Investigator</role>
+      </personnel>
+      <funding>National Science Foundation NSF DEB #1457371</funding>
+      <relatedProject>
+        <title>No project title to report</title>
+        <personnel>
+          <individualName>
+            <givenName>Alex</givenName>
+            <surName>Wegmann</surName>
+          </individualName>
+          <organizationName>The Nature Conservancy</organizationName>
+          <electronicMailAddress>alex.wegmann@tnc.org</electronicMailAddress>
+          <role>Principal Investigator</role>
+        </personnel>
+        <funding>Wildlife Conservation Society Climate Adaptation Fund</funding>
+      </relatedProject>
+    </project>
+    <dataTable>
+      <entityName>Palmyra Atoll Soil and Wood Sample attributes  2016 and 2019</entityName>
+      <entityDescription>Additional information of trees and soil samples</entityDescription>
+      <physical>
+        <objectName>soil_wood_samples_loc_info_2016_2019.csv</objectName>
+        <size unit="bytes">13691</size>
+        <authentication method="MD5">fa603167228d82072cea0baecf0aed0a</authentication>
+        <dataFormat>
+          <textFormat>
+            <numHeaderLines>1</numHeaderLines>
+            <recordDelimiter>\n</recordDelimiter>
+            <attributeOrientation>column</attributeOrientation>
+            <simpleDelimited>
+              <fieldDelimiter>,</fieldDelimiter>
+              <quoteCharacter>"</quoteCharacter>
+            </simpleDelimited>
+          </textFormat>
+        </dataFormat>
+      </physical>
+      <attributeList>
+        <attribute>
+          <attributeName>type</attributeName>
+          <attributeDefinition>This describes the vegetation community type at the sampling location. Homo refers to homogeneous (single-species) community types, while Hetero refers to heterogeneous community types.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>Hetero</code>
+                    <definition>heterogeneous community types</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Homo</code>
+                    <definition>homogeneous (single-species) community types</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>grain</attributeName>
+          <attributeDefinition>This refers to the grain or sediment found at each sampling location, as prevailing winds can affect sediment size and other soil properties.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>Lagoon</code>
+                    <definition>Samples extracted closer to the interior of the atoll where the prevailing wind patterns are less likely to affect grain size.</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Leeward</code>
+                    <definition>Indicates that the sample was taken on the leeward side of the island (i.e. no prevailing wind).</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Windward</code>
+                    <definition>Indicates that the sample was taken on the windward side of the island</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>origin</attributeName>
+          <attributeDefinition>This refers to whether the islet from which the sample was extracted is man-made or natural. Whether the islet is man-made or natural can affect sediment properties.</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>Man-made</code>
+                    <definition>Sample extracted of a man-made islet</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Natural</code>
+                    <definition>Sample extracted of a natural islet</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>lat</attributeName>
+          <attributeDefinition>Latitudinal location of the sample</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>degree</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">5.871134</minimum>
+                  <maximum exclusive="false">5.892724022</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>long</attributeName>
+          <attributeDefinition>Longitudinal location of the sample</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>degree</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">-162.108404896</minimum>
+                  <maximum exclusive="false">-162.04952</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>island</attributeName>
+          <attributeDefinition>The individual islet at Palmyra from where the sample was extracted</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>The individual islet at Palmyra from where the sample was extracted</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>name</attributeName>
+          <attributeDefinition>A unique identifying code assigned to each sampling location</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>A unique identifying code assigned to each sampling location</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>dbd</attributeName>
+          <attributeDefinition>Dry bulk density of the soil sample, measured by dividing the dried weight of the soil sample by the volume of the soil extracted at the sampling location</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>gramsPerCubicMeter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.101160714</minimum>
+                  <maximum exclusive="false">2.092024</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>org_c_per</attributeName>
+          <attributeDefinition>The percentage of organic carbon measured or calculated from each soil sample</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <standardUnit>percent</standardUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.48473</minimum>
+                  <maximum exclusive="false">38.46473</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>species</attributeName>
+          <attributeDefinition>Observed woody vegetation species closest to soil sampling location OR wood species sampled</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Observed woody vegetation species closest to soil sampling location OR wood species sampled</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>crown_ras</attributeName>
+          <attributeDefinition>Type of tree at the location of the sample according to remote sensing data (Struckhoff 2019)</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Type of tree at the location of the sample according to remote sensing data (Struckhoff 2019)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>com_ras</attributeName>
+          <attributeDefinition>Woody vegetation community type at the location of the sample according to remote sensing data (Struckhoff 2019)</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Woody vegetation community type at the location of the sample according to remote sensing data (Struckhoff 2019)</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_yr</attributeName>
+          <attributeDefinition>The year in which the sample was extracted</attributeDefinition>
+          <storageType>date</storageType>
+          <measurementScale>
+            <dateTime>
+              <formatString>YYYY</formatString>
+              <dateTimeDomain/>
+            </dateTime>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>org_c_bin</attributeName>
+          <attributeDefinition>Based on the soil organic carbon content, the bin that each sample was assigned to for modelling purposes. High &gt;20%; Medium 10 – 20%; Low &lt;10%</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <enumeratedDomain>
+                  <codeDefinition>
+                    <code>High</code>
+                    <definition>&gt;20% of soil organic carbon</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Low</code>
+                    <definition>&lt; 10% of soil organic carbon</definition>
+                  </codeDefinition>
+                  <codeDefinition>
+                    <code>Med</code>
+                    <definition>10 – 20% of soil organic carbon</definition>
+                  </codeDefinition>
+                </enumeratedDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>dbd_avg</attributeName>
+          <attributeDefinition>Mean dry bulk density values for each bin category</attributeDefinition>
+          <storageType>float</storageType>
+          <measurementScale>
+            <ratio>
+              <unit>
+                <customUnit>gramsPerCubicMeter</customUnit>
+              </unit>
+              <numericDomain>
+                <numberType>real</numberType>
+                <bounds>
+                  <minimum exclusive="false">0.272</minimum>
+                  <maximum exclusive="false">1</maximum>
+                </bounds>
+              </numericDomain>
+            </ratio>
+          </measurementScale>
+        </attribute>
+        <attribute>
+          <attributeName>sample_type</attributeName>
+          <attributeDefinition>Denotes which types of samples were extracted at each location</attributeDefinition>
+          <storageType>string</storageType>
+          <measurementScale>
+            <nominal>
+              <nonNumericDomain>
+                <textDomain>
+                  <definition>Denotes which types of samples were extracted at each location</definition>
+                </textDomain>
+              </nonNumericDomain>
+            </nominal>
+          </measurementScale>
+        </attribute>
+      </attributeList>
+      <numberOfRecords>99</numberOfRecords>
+    </dataTable>
+    <otherEntity>
+      <entityName>Shapefiles with geospatil data</entityName>
+      <entityDescription>zip file with all necessary files to read in the location of the sampling for this project</entityDescription>
+      <physical>
+        <objectName>soil_wood_samples_location_palmyra_2016_2019.zip</objectName>
+        <size unit="bytes">13460</size>
+        <authentication method="MD5">273f0ce3a01aad37602d6299ab78c0ea</authentication>
+        <dataFormat>
+          <externallyDefinedFormat>
+            <formatName>application/zip</formatName>
+          </externallyDefinedFormat>
+        </dataFormat>
+      </physical>
+      <entityType>unknown</entityType>
+    </otherEntity>
+  </dataset>
+  <additionalMetadata>
+    <metadata>
+      <unitList>
+        <unit id="degree" name="degree" parentSI="radian" unitType="angle">
+          <description>360 degrees comprise a unit circle.</description>
+        </unit>
+        <unit id="gramsPerCubicMeter" name="gramsPerCubicMeter" parentSI="kilogramPerMeterCubed" unitType="massDensity">
+          <description>gramsPerCubicMeter</description>
+        </unit>
+        <unit id="percent" name="percent" parentSI="" unitType="dimensionless">
+          <description>ratio of two quantities as percent composition (1:100)</description>
+        </unit>
+      </unitList>
+    </metadata>
+  </additionalMetadata>
+</eml:eml>

@@ -3,7 +3,7 @@
 #' 
 get_meta_xlsx <- function(folder_path=folder_path,dataset_id=dataset_id) {
 
-wb= meta_path = paste0(folder_path,"Metadata/Metadata.xlsx")
+wb= meta_path = paste0(folder_path,"Metadata.xlsx")
 
 boilerplate <-  as.data.frame(read_xlsx (wb, sheet = "Boilerplate", na="") )
   
@@ -34,14 +34,15 @@ creator_raw <- as.data.frame(read_xlsx  (wb, sheet = "DataSetPersonnel", na=""))
 
 people <- as.data.frame(read_xlsx  (wb, sheet = "ListPeople", na=""))
 
-creator <-dataset %>%
-  filter(datasetid==dataset_id) %>%
-  select(project_PI,project_funding_title,project_funding_code) %>%
-  rename(peopleid=project_PI,projectTitle=project_funding_title,fundingNumber=project_funding_code) %>%
-  mutate(authorshiprole="PI") %>%
-  bind_rows(creator_raw) %>%
+creator <- creator_raw %>% 
+  # dataset %>%
+  # filter(datasetid==dataset_id) %>%
+  # select(project_PI,project_funding_title,project_funding_code) %>%
+  # rename(peopleid=project_PI,projectTitle=project_funding_title,fundingNumber=project_funding_code) %>%
+  # mutate(authorshiprole="PI") %>%
+  # bind_rows(creator_raw) %>%
   filter(!is.na(peopleid)) %>%
-  left_join(people,by="peopleid") 
+  left_join(people,by="peopleid")
   
 keyword <- as.data.frame(read_xlsx  (wb, sheet = "DataSetKeywords", na=""))%>%
   filter(datasetid==dataset_id)

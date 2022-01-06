@@ -1,6 +1,9 @@
 #' @title generate EML using Assemblyline and content from Excel workbook.
 #' 
 #' 
+
+data_path <- paste0(getwd(), "/7.clean_data")
+
 generate_EML_Assemblyline <- function(project_path, excel_input,dataset_id_input) {
 
 #run the get_meta_xlsx function
@@ -13,14 +16,15 @@ if (length(entity[entity$entitytype=="otherEntity","filename"])!=0) {otherentity
 #create a template
 eal_inputs <- EMLassemblyline::template_arguments(
   empty = T, 
-  data.path = project_path,
+  data.path = data_path,
   data.table = if (datatable_present==1) {entity[entity$entitytype=="dataTable","filename"]} else {NULL},
   other.entity = if (otherentity_present==1){entity[entity$entitytype=="otherEntity","filename"]} else {NULL}
 )
 
 #dataset level
 eal_inputs$dataset.title <- excel_input$dataset$title
-eal_inputs$data.path = eal_inputs$eml.path <- project_path
+eal_inputs$data.path  <- data_path
+eal_inputs$eml.path <- project_path
 
 if (!is.na(excel_input$dataset$maintenance)) {eal_inputs$maintenance.description <- excel_input$dataset$maintenance}
 
@@ -249,8 +253,8 @@ eal_inputs$x$template$personnel.txt$content <- data.frame(
   electronicMailAddress= as.character(excel_input$creator$email),
   userId= as.character(excel_input$creator$orcid),
   role=as.character(excel_input$creator$authorshiprole),
-  projectTitle = as.character(excel_input$creator$projectTitle),
-  fundingAgency = as.character(""),
+  projectTitle = as.character(""),
+  fundingAgency = as.character(excel_input$creator$fundingAgency),
   fundingNumber = as.character(excel_input$creator$fundingNumber),
   stringsAsFactors = F)
 
