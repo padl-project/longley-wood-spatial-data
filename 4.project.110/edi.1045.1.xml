@@ -151,8 +151,8 @@
     of the samples.
   </para>
           <para>
-    Additionally, the .csv files has all the detailed information about
-    the samples (eg vegetation community type, islet name, etc.)
+    Additionally, the .csv file has all the detailed information about
+    each sample (eg vegetation community type, islet name, etc.)
   </para>
         </description>
       </methodStep>
